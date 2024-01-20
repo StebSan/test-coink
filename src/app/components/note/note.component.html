@@ -1,0 +1,45 @@
+<ion-grid>
+  <ion-row class="align-items-center"
+           *ngIf="message === 'phone'">
+    <ion-col size="4">
+      <img src="/assets/img/oink-only.svg" alt="oink">
+    </ion-col>
+    <ion-col size="8">
+      <span class="fs-16 text-note">
+        Para comenzar, por favor ingresa <b>tu número celular.</b>
+      </span>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="align-items-center"
+           *ngIf="message === 'data'">
+    <ion-col size="3">
+      <img src="/assets/img/oink-m.svg" alt="oink m">
+    </ion-col>
+    <ion-col size="9">
+      <h5 class="fs-16 title">
+        ¿CUÁLES SON TUS DATOS?
+      </h5>
+      <span class="fs-16 text-note">
+        Ahora necesitamos saber algunos datos tuyos.
+      </span>
+    </ion-col>
+  </ion-row>
+
+  <ion-row class="align-items-center"
+           *ngIf="message === 'police'">
+    <ion-col size="3">
+      <img src="/assets/img/oinkPolicia.svg" alt="oink police">
+    </ion-col>
+    <ion-col size="9">
+      <h5 class="fs-16 title">
+        ESTAS MUY CERCA DE SER PARTE DE COINK.
+      </h5>
+      <span class="fs-14 text-note">
+        Solo es necesario que leas detenidamente el contrato que se encuentra al final de esta pantalla y lo aceptes.
+      </span>
+    </ion-col>
+  </ion-row>
+
+  <hr class="separator-note">
+</ion-grid>

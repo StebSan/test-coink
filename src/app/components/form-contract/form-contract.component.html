@@ -1,0 +1,52 @@
+<ion-grid>
+  <ion-row>
+    <ion-col size="12">
+      <div>
+        <h4 class="fs-16 mt-0 title">LO MÁS IMPORTANTE</h4>
+      </div>
+      <div>
+        <p class="fs-14">
+          Para la apertura del Depósito de Bajo Monto en COINK debes ser una persona natural que de acuerdo con nuestra legislación vigente te encuentres en plena capacidad para adquirir derechos y contraer obligaciones.
+        </p>
+        <p class="fs-14">
+          Abrirás una cuenta COINK de Bajo Monto la cual te permitirá tener un saldo hasta por 8 salarios mínimos en el mes y realizar débitos por el mismo valor. Si deseas sobrepasar estos límites debes solicitarnos la apertura de un Depósito Ordinario COINK Persona Natural.
+        </p>
+        <p class="fs-14">
+          Solo puedes tener una cuenta COINK de Bajo Monto y podrás utilizar tu dispositivo móvil para consultar tu saldo, tus movimientos, realizar tus transacciones y administrar tu cuenta.
+        </p>
+        <p class="fs-14">
+          Recuerda que no necesitas saldo mínimo ni monto inicial para su apertura.
+        </p>
+      </div>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size="12">
+      <div>
+        <h5 class="fs-16 mt-0 title text-underline">
+          Lee tu contrato
+        </h5>
+      </div>
+    </ion-col>
+    <ion-col size="12">
+      <form [formGroup]="formContract" (ngSubmit)="onSubmit()">
+        <div>
+          <ion-checkbox formControlName="confirm"
+                        labelPlacement="end">
+              He leído ya acepto el contrato
+          </ion-checkbox>
+        </div>
+        <div class="mt-40">
+          <ion-button expand="block"
+                      mode="ios"
+                      type="submit"
+                      class="btn-block fw-7"
+                      [color]="formContract.invalid ? 'medium' : 'primary'"
+                      [disabled]="formContract.invalid">
+              ACEPTAR
+            </ion-button>
+        </div>
+      </form>
+    </ion-col>
+  </ion-row>
+</ion-grid>

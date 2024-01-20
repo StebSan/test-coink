@@ -1,0 +1,177 @@
+<ion-grid>
+  <form [formGroup]="formDataGral" (ngSubmit)="onSubmit()">
+    <ion-row>
+      <ion-col size="12">
+        <h4 class="fs-16 mt-0 title">Documento de identidad</h4>
+      </ion-col>
+      <ion-col class="ml-10 pt-0" size="12">
+        <div *ngIf="documentTypes; else skeletonDocType">
+          <ion-list class="pt-0">
+            <ion-item>
+              <ion-select formControlName="docType"
+                          label="Tipo de documento"
+                          interface="popover"
+                          placeholder="Tipo de documento"
+                          labelPlacement="floating">
+                <ion-select-option
+                    *ngFor="let type of documentTypes"
+                    [value]="type.id">
+                        {{ type.description }}
+                </ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-list>
+        </div>
+        <ng-template #skeletonDocType>
+          <ion-skeleton-text [animated]="true" style="width: 100%; height: 45px"></ion-skeleton-text>
+        </ng-template>
+        <div>
+          <ion-input
+            formControlName="docNumber"
+            type="text"
+            label="Número de documento"
+            labelPlacement="floating"
+            max=""
+            errorText="Numero invalido"
+            onkeypress="return (event.keyCode >= 48 && event.keyCode <= 57)"
+            maxlength="10"
+            minlength="10"
+          ></ion-input>
+        </div>
+        <div>
+          <ion-input
+            formControlName="docDate"
+            type="date"
+            label="Fecha de expedición del documento"
+            labelPlacement="floating"
+            errorText="Formato invalido"
+          ></ion-input>
+        </div>
+        <div>
+          <ion-input
+            formControlName="birthday"
+            type="date"
+            label="Fecha de nacimiento"
+            labelPlacement="floating"
+            errorText="Formato invalido"
+          ></ion-input>
+        </div>
+        <div *ngIf="genders; else skeletonGender">
+          <ion-list>
+            <ion-item>
+              <ion-select
+                formControlName="gender"
+                label="Genero"
+                interface="popover"
+                placeholder="Genero"
+                labelPlacement="floating">
+                  <ion-select-option
+                    *ngFor="let gender of genders"
+                    [value]="gender.id">
+                        {{ gender.description }}
+                  </ion-select-option>
+              </ion-select>
+            </ion-item>
+          </ion-list>
+        </div>
+        <ng-template #skeletonGender>
+          <ion-skeleton-text [animated]="true" style="width: 100%; height: 45px"></ion-skeleton-text>
+        </ng-template>
+      </ion-col>
+    </ion-row>
+
+    <!--  -->
+    <ion-row class="mt-20">
+      <ion-col size="12">
+        <h4 class="fs-16 title">Configura tu cuenta</h4>
+      </ion-col>
+      <ion-col class="ml-10 pt-0" size="12">
+        <div>
+          <ion-input
+            formControlName="email"
+            type="email"
+            label="Correo electrónico"
+            labelPlacement="floating"
+            errorText="Email invalido"
+            email
+          ></ion-input>
+        </div>
+        <div>
+          <ion-input
+            formControlName="emailConfirm"
+            type="email"
+            label="Confirmar correo electrónico"
+            labelPlacement="floating"
+            errorText="Email no concide"
+            email
+          ></ion-input>
+        </div>
+        <div>
+          <ion-list>
+            <ion-item>
+              <ion-input
+                formControlName="pin"
+                [type]="showPass"
+                label="PIN de seguridad"
+                placeholder="PIN de seguridad"
+                labelPlacement="floating"
+                onkeypress="return (event.keyCode >= 48 && event.keyCode <= 57)"
+                maxlength="4"
+                minlength="4">
+                  <ion-button
+                      fill="clear"
+                      slot="end"
+                      aria-label="Show/hide"
+                      (click)="showPassword()">
+                    <ion-icon
+                        slot="icon-only"
+                        [name]="showPass === 'text' ? 'eye-off-outline' : 'eye'"
+                        aria-hidden="true">
+                    </ion-icon>
+                  </ion-button>
+              </ion-input>
+            </ion-item>
+          </ion-list>
+        </div>
+        <div>
+          <ion-list>
+            <ion-item>
+              <ion-input
+                formControlName="pinConfirm"
+                [type]="showPass"
+                label="PIN de seguridad"
+                placeholder="PIN de seguridad"
+                labelPlacement="floating"
+                onkeypress="return (event.keyCode >= 48 && event.keyCode <= 57)"
+                maxlength="4"
+                minlength="4"
+                errorText="Este campo no coincide con el PIN">
+                  <ion-button
+                      fill="clear"
+                      slot="end"
+                      aria-label="Show/hide"
+                      (click)="showPassword()">
+                    <ion-icon
+                        slot="icon-only"
+                        [name]="showPass === 'text' ? 'eye-off-outline' : 'eye'"
+                        aria-hidden="true">
+                    </ion-icon>
+                  </ion-button>
+              </ion-input>
+            </ion-item>
+          </ion-list>
+        </div>
+        <div>
+          <ion-button expand="block"
+                      mode="ios"
+                      type="submit"
+                      class="btn-block fw-7"
+                      [color]="formDataGral.invalid ? 'medium' : 'primary'"
+                      [disabled]="formDataGral.invalid">
+            SIGUIENTE
+          </ion-button>
+        </div>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-grid>

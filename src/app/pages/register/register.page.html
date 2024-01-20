@@ -1,0 +1,41 @@
+<ion-header [translucent]="true">
+  <app-step-toolbar
+      [title]="titleToolbar"
+      [selectedStep]="selectedStep">
+  </app-step-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div id="container" class="mt-20">
+    <div class="m-20">
+      <app-note [message]="messageNote"></app-note>
+    </div>
+    <ng-container *ngIf="showDataPhone">
+      <div class="m-20">
+        <ion-input
+            class="phone"
+            fill="outline"
+            placeholder="(XXX - XXXXXX)"
+            [value]="phoneValue | formatPhone"
+            disabled>
+        </ion-input>
+      </div>
+      <div class="mt-40">
+        <app-number-keyboard
+            (valueChange)="numberKeyValue($event)"
+            (confirm)="numberKeyConfirm($event)">
+        </app-number-keyboard>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="showFormDataGral">
+      <div class="ml-20 mr-20 mb-20 mt-0">
+        <app-form-identity (formGralSuccess)="handleFormGral($event)"></app-form-identity>
+      </div>
+    </ng-container>
+
+    <div class="m-20" *ngIf="showContract">
+      <app-form-contract (formContractSuccess)="handleFormContract($event)"></app-form-contract>
+    </div>
+  </div>
+</ion-content>
+

@@ -1,0 +1,55 @@
+<ion-grid class="keyboardNumber">
+  <ion-row class="align-items-center">
+    <ion-col>
+      <ion-button class="key" fill="clear" (click)="onKeyClick(1)">1</ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button class="key" fill="clear" (click)="onKeyClick(2)">2</ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button class="key" fill="clear" (click)="onKeyClick(3)">3</ion-button>
+    </ion-col>
+  </ion-row>
+  <ion-row class="align-items-center">
+    <ion-col>
+      <ion-button class="key" fill="clear" (click)="onKeyClick(4)">4</ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button class="key" fill="clear" (click)="onKeyClick(5)">5</ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button class="key" fill="clear" (click)="onKeyClick(6)">6</ion-button>
+    </ion-col>
+  </ion-row>
+  <ion-row class="align-items-center">
+    <ion-col>
+      <ion-button class="key" fill="clear" (click)="onKeyClick(7)">7</ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button class="key" fill="clear" (click)="onKeyClick(8)">8</ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button class="key" fill="clear" (click)="onKeyClick(9)">9</ion-button>
+    </ion-col>
+  </ion-row>
+  <ion-row class="align-items-center">
+    <ion-col>
+      <ion-button class="key-back" fill="clear" (click)="onKeyClick('back')">
+        <img src="/assets/img/backspace.svg">
+      </ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button class="key" fill="clear" (click)="onKeyClick(0)">0</ion-button>
+    </ion-col>
+    <ion-col>
+      <ion-button class="key-confirm"
+                  shape="round"
+                  mode="md"
+                  (click)="onKeyClick('confirm')"
+                  [color]="this.phone.length <= 9 ? 'medium' : 'primary'"
+                  [disabled]="phone.length < 10">
+        <ion-icon name="checkmark-outline"></ion-icon>
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>

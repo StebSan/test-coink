@@ -1,0 +1,19 @@
+.keyboardNumber {
+  text-align: center;
+}
+
+.key {
+  color: var(--ion-color-secondary);
+  font-size: 30px;
+}
+
+.key-back {
+  width: 70px;
+}
+
+.key-confirm {
+  --color: white;
+  font-size: 25px;
+  --padding-start: 10px !important;
+  --padding-end: 10px !important;
+}

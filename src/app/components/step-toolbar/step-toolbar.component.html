@@ -1,0 +1,17 @@
+<ion-toolbar mode="md">
+  <ion-buttons slot="start">
+    <ion-back-button
+        default-href="#"
+        color="tertiary"
+        icon="chevron-back-outline">
+    </ion-back-button>
+  </ion-buttons>
+  <ion-title class="title-toolbar">{{ title }}</ion-title>
+  <div class="step-toolbar">
+    <ng-container *ngFor="let item of lenght; let i = index">
+      <ion-radio-group mode="md" [allowEmptySelection]="true" [(ngModel)]="selectedStep[i]">
+        <ion-radio [value]="i"></ion-radio>
+      </ion-radio-group>
+    </ng-container>
+  </div>
+</ion-toolbar>
