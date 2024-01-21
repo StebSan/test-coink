@@ -1,13 +1,13 @@
-# Nombre de la Aplicación
+# Prueba Coink
 
 Proyecto Prueba Coink
 
-# Inconvenientes presentados
+## Inconvenientes presentados
 
 - El endPoint [genders](https://api.bancoink.biz/qa/signup/genders?apiKey=030106) que parece ser información de los generos, regresa un json encriptado el cual no podria mostrar en el input correspondiente.
 - Se sustituyo por un mock la información de generos.
 
-### Prerrequisitos
+## Prerrequisitos
 
 - node v18.x
 - Android Studio (Opcional generar APK)
